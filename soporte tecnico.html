@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soporte Técnico</title>
+  <link rel="shortcut icon" href="Imagenes/icono.png" type="image/png">
+  <style>
+    body {
+      font-family: "Sans-serif", Helvetica, sans-serif;
+      margin: 0;
+    }
+
+    .barra-superior {
+      display: flex;
+      align-items: center;
+      background-color: #a5c8e1;
+      padding: 12px 30px;
+    }
+
+    /* Logo a la izquierda */
+     .logo {
+ 	z-index: 1001;
+  	position: relative;
+     }
+
+    .logo img {
+      width: 72px;
+      border-radius: 50px;
+    }
+
+    /* Título centrado en el espacio restante */
+    .titulo {
+  	flex: 1;
+  	text-align: center;
+  	position: relative;
+  	left: -70px;
+	}
+
+    .titulo h1 {
+      margin: 0;
+      font-size: 60px;
+      color: #333;
+      background-color: white;
+      border-radius: 25px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      display: inline-block;
+      padding: 5px 20px;
+    }
+
+     .regresar-container{
+      position: fixed;
+      z-index: 1000;
+    }
+
+    .regresar-container {
+      bottom: 570px;
+      left: 1200px;
+    }
+
+    .regresar-btn {
+      width: 55px;
+      height: 55px;
+      background-color: white;
+      color: white;
+      border: none;
+      border-radius: 50px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+     .regresar-btn:hover {
+      background-color: #a5c8e1;
+      transform: scale(1.2);
+    }
+
+    /* texto de mision y vision */
+
+    .contenido {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 30px;
+        }
+
+        .contenido img {
+            margin-right: 20px;
+        }
+
+        .lista {
+            text-align: left;
+        }
+
+        .descripcion {
+            margin-top: 30px;
+            width: 60%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+  </style>
+    <style type="text/css">
+        #menu {
+            margin: auto;
+            width: 1000px;
+            text-align: center;
+        }
+        ul {
+            padding: 30px;
+        }
+        li {
+            list-style: none;
+            display: inline; 
+            margin: 0 20px;
+            font-size: 18px;
+            color: black;
+        }
+        li:hover {
+            background-color: skyblue;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .form-container, .chat-container {
+            margin-top: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .form-group button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .form-group button:hover {
+            background-color: #218838;
+        }
+        .chat-log {
+            max-height: 300px;
+            overflow-y: auto;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+        }
+        .chat-log p {
+            margin: 0 0 10px;
+        }
+        .chat-input {
+            display: flex;
+        }
+        .chat-input input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px 0 0 8px;
+            outline: none;
+        }
+        .chat-input button {
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #007bff;
+            color: white;
+            border-radius: 0 8px 8px 0;
+            cursor: pointer;
+            outline: none;
+        }
+        .chat-input button:hover {
+            background-color: #0056b3;
+        }
+
+
+	.regresar-container{
+      position: fixed;
+      z-index: 1000;
+    }
+
+    .regresar-container {
+      bottom: 570px;
+      left: 1200px;
+    }
+
+    .regresar-btn {
+      width: 55px;
+      height: 55px;
+      background-color: white;
+      color: white;
+      border: none;
+      border-radius: 50px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+     .regresar-btn:hover {
+      background-color: #a5c8e1;
+      transform: scale(1.2);
+    }
+
+    </style>
+</head>
+<body>
+<div class="barra-superior">
+    <div class="logo"  >
+      <a href="index.html" class="boton-imagen">
+  		<img src="Imagenes/icono1.png" alt="Icono">
+	</a>
+    </div>
+
+   <!-- Botón de regresar -->
+  <div class="regresar-container">
+    <button class="regresar-btn" onclick="regresar()">
+      <span style="font-size: 30px;">🔙</span>
+    </button>
+  </div>
+
+<script>
+    function confirmarNavegacion() {
+      return confirm("¿Seguro que quieres ir a esta página?");
+    }
+
+    function regresar() {
+    window.location.href = "index.html"; // Redirige a la página Inicio.html
+  }
+  </script>
+ 
+  
+
+    <div class="titulo">
+      <h1>Soporte</h1>
+    </div>
+  </div>
+
+    <div class="container">
+        <div class="header">
+            <h1>Soporte Técnico</h1>
+            <p>Bienvenido al centro de soporte. Aquí puedes resolver tus dudas frecuentes o contactar con nuestro equipo de soporte.</p>
+            <p>Para soporte técnico, llámanos al: 6566966764</p>
+	    <p>Para soporte técnico por correo, al242433@alumnos.uacj.mx</p>
+        </div>
+
+        <div class="form-container">
+            <h2>Formulario de Contacto</h2>
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="mensaje">Mensaje:</label>
+                    <textarea id="mensaje" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <div style="text-align: center;">
+  				<button type="submit">Enviar</button>
+			</div>
+                </div>
+            </form>
+        </div>
+
+
+    </div>
+
+    <script>
+        const respuestasFrecuentes = {
+            "¿cómo puedo reiniciar mi computadora?": "Para reiniciar tu computadora, ve al menú de inicio, selecciona 'Reiniciar' y espera a que el sistema se reinicie.",
+            "¿qué debo hacer si mi computadora no enciende?": "Si tu computadora no enciende, asegúrate de que está conectada a una fuente de energía y prueba presionando el botón de encendido durante varios segundos.",
+            "¿cómo puedo conectar mi computadora a una red wi-fi?": "Para conectar tu computadora a una red Wi-Fi, ve a la configuración de red, selecciona la red Wi-Fi a la que deseas conectarte e ingresa la contraseña correspondiente.",
+            "¿qué debo hacer si mi computadora está lenta?": "Si tu computadora está lenta, intenta cerrar programas innecesarios, realizar un análisis de virus y considerar aumentar la memoria RAM.",
+            "¿cómo puedo actualizar el sistema operativo?": "Para actualizar tu sistema operativo, ve a la configuración del sistema, selecciona 'Actualización y seguridad' y sigue las instrucciones para buscar e instalar actualizaciones.",
+            "¿cuáles son los requisitos para rentar un equipo?": "Para rentar un equipo necesitas ser mayor de edad y presentar una identificación oficial válida.",
+            "¿qué tipos de equipos tienen disponibles?": "Tenemos disponibles portátiles y equipos de escritorio de varias marcas como Lenovo, Dell y Apple.",
+            "¿cuanto cuesta rentar un equipo?": "El costo de renta depende del tipo de equipo y el tiempo de renta. Por favor, especifica el equipo que necesitas y la duración de la renta para más detalles.",
+            "¿qué sucede si un equipo se daña durante la renta?": "Si un equipo se daña durante la renta, se evaluará el daño y se aplicarán cargos adicionales según el tipo de daño.",
+            "¿puedo extender el tiempo de renta?": "Sí, puedes extender el tiempo de renta contactándonos antes de que termine el periodo inicial de renta."
+        };
+
+        function enviarMensaje() {
+            const chatInput = document.getElementById('chatInput');
+            const chatLog = document.getElementById('chatLog');
+
+            const preguntaUsuario = chatInput.value.trim();
+
+            if (preguntaUsuario !== "") {
+                const userMessage = document.createElement('p');
+                userMessage.textContent = "Tú: " + preguntaUsuario;
+                chatLog.appendChild(userMessage);
+
+                const respuesta = obtenerRespuesta(preguntaUsuario);
+
+                const botMessage = document.createElement('p');
+                botMessage.textContent = "IA: " + respuesta;
+                chatLog.appendChild(botMessage);
+
+                chatLog.scrollTop = chatLog.scrollHeight;
+                chatInput.value = "";
+            }
+        }
+
+        function obtenerRespuesta(pregunta) {
+            pregunta = pregunta.toLowerCase();
+            for (const [preguntaFrecuente, respuesta] of Object.entries(respuestasFrecuentes)) {
+                if (pregunta.includes(preguntaFrecuente)) {
+                    return respuesta;
+                }
+            }
+            return "Lo siento, no tengo la respuesta a esa pregunta. Por favor, contacta con soporte para más información.";
+        }
+
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('Formulario enviado. Nos pondremos en contacto contigo pronto.');
+        });
+    </script>
+</body>
+</html>

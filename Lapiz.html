@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Michiliztli</title>
+  <link rel="shortcut icon" href="Imagenes/icono.png" type="image/png">
+  <style>
+    body {
+      font-family: "Sans-serif", Helvetica, sans-serif;
+      margin: 0;
+    }
+
+    .barra-superior {
+      display: flex;
+      align-items: center;
+      background-color: #a5c8e1;
+      padding: 12px 30px;
+    }
+
+    /* Logo a la izquierda */
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      width: 72px;
+      border-radius: 50px;
+    }
+
+    /* Título centrado en el espacio restante */
+    .titulo {
+  	flex: 1;
+  	text-align: center;
+  	position: relative;
+  	left: -70px;
+	}
+
+    .titulo h1 {
+      margin: 0;
+      font-size: 60px;
+      color: #333;
+      background-color: white;
+      border-radius: 25px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      display: inline-block;
+      padding: 5px 20px;
+    }
+	/* ===== INICIO botones ===== */
+    .carrito-container, .soporte-container {
+      position: fixed;
+      z-index: 1000;
+    }
+
+    .carrito-container {
+      bottom: 570px;
+      left: 1200px;
+    }
+
+    .carrito-btn {
+      width: 55px;
+      height: 55px;
+      background-color: white;
+      color: white;
+      border: none;
+      border-radius: 50px;
+      font-size: 16px;
+      cursor: pointer;
+      border: 2px solid #a5c8e1;
+    }
+     .carrito-btn:hover {
+      background-color: #a5c8e1;
+      transform: scale(1.2);
+    }
+    .soporte-container {
+      bottom: 70px;
+      left: 1200px;
+    }
+    .soporte-btn {
+      width: 55px;
+      height: 55px;
+      background-color: white;
+      color: white;
+      border: none;
+      border-radius: 50px;
+      font-size: 16px;
+      cursor: pointer;
+      border: 2px solid #a5c8e1; /* Contorno azul claro BORDO*/
+    }
+    .soporte-btn:hover {
+    background-color: #a5c8e1;
+    transform: scale(1.2); /* Hace que el tamaño se agrande */
+}
+
+    /* ===== fin de botones S Y C ===== */
+
+	/*  regresar */
+	.regresar-container{
+      position: fixed;
+      z-index: 1000;
+    }
+
+    .regresar-container {
+      bottom: 570px;
+      left: 1100px;
+    }
+
+    .regresar-btn {
+      width: 55px;
+      height: 55px;
+      background-color: white;
+      color: white;
+      border: none;
+      border-radius: 50px;
+      font-size: 16px;
+      cursor: pointer;
+      border: 2px solid #a5c8e1;
+    }
+     .regresar-btn:hover {
+      background-color: #a5c8e1;
+      transform: scale(1.2);
+    }
+
+
+  </style>
+</head>
+
+<body>
+
+<div class="barra-superior">
+    	<div class="logo">
+      		<img src="Imagenes/icono1.png" alt="Icono">
+    	</div>
+	
+
+	<div class="titulo">
+ 		<h1>HUAWEI</h1>
+    	</div>
+</div>
+
+	<img src="Imagenes/A3.png" alt="A3" style="display: block; margin: 0 auto; width: 250px;">
+
+	<h1 style="text-align: center;">Lápiz óptico Original </h1>
+  	<h3 style="text-align: center;">Precio: $399.00 USD</h3>
+
+
+	 <h2 style="text-align: center;">Especificaciones </h2>
+		<h4 style="text-align: center;"> Lápiz óptico activo, sensibilidad a la presión de 4096 niveles</h4>
+		<h4 style="text-align: center;"> Tecla táctil (se puede pulsar dos veces en algunas aplicaciones para cambiar de función)</h4>
+		<h4 style="text-align: center;"> Resistencia al agua para uso diario</h4>
+		<h4 style="text-align: center;"> Latencia ultra baja, escritura suave y precisa</h4>
+
+
+  	<h2 style="text-align: center;">Características</h2>
+  		<h4 style="text-align: center;">Compatible y soporta carga magnética</h4>
+  		<h4 style="text-align: center;">MatePad con WiFi 6</h4>
+  		<h4 style="text-align: center;">Material plástico o metal</h4>
+  		<h4 style="text-align: center;">2 puntas de repuesto.</h4>
+
+
+  	<div class="carrito-container">
+    		<button class="carrito-btn" onclick="abrirCarrito()"><span style="font-size: 30px;">🛒</span></button>
+  	</div>
+
+  	<div class="soporte-container">
+    		<button class="soporte-btn" onclick="abrirSoporte()"><span style="font-size: 30px;">🎧</span></button>
+  	</div>
+	
+
+	<!-- Botón de regresar -->
+  <div class="regresar-container">
+    <button class="regresar-btn" onclick="regresar()">
+      <span style="font-size: 30px;">🔙</span>
+    </button>
+  </div>
+
+
+  <script>
+    function abrirCarrito() {
+      alert("Abriendo carrito...");
+    }
+
+   
+
+    function abrirSoporte() {
+    window.location.href = "Soporte tecnico.html"; // Redirige a la página Inicio.html
+  }
+
+
+function regresar() {
+    window.location.href = "accesorios.html"; // Redirige a la página Inicio.html
+  	}
+	
+	function confirmarNavegacion() {
+     	 return confirm("¿Seguro que quieres ir a esta página?");
+    }
+
+    function regresar() {
+    window.location.href = "accesorios.html"; // Redirige a la página Inicio.html
+  	}
+  </script>
+  <!-- ===== FIN ===== -->
+
+</body>
+</html>

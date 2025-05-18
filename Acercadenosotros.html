@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Michiliztli</title>
+  <link rel="shortcut icon" href="Imagenes/icono.png" type="image/png">
+  <style>
+    body {
+      font-family: "Sans-serif", Helvetica, sans-serif;
+      margin: 0;
+    }
+
+    .barra-superior {
+      display: flex;
+      align-items: center;
+      background-color: #a5c8e1;
+      padding: 12px 30px;
+    }
+
+    /* Logo a la izquierda */
+     .logo {
+ 	z-index: 1001;
+  	position: relative;
+     }
+
+    .logo img {
+      width: 72px;
+      border-radius: 50px;
+    }
+
+    /* Título centrado en el espacio restante */
+    .titulo {
+  	flex: 1;
+  	text-align: center;
+  	position: relative;
+  	left: -70px;
+	}
+
+    .titulo h1 {
+      margin: 0;
+      font-size: 60px;
+      color: #333;
+      background-color: white;
+      border-radius: 25px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      display: inline-block;
+      padding: 5px 20px;
+    }
+
+     .regresar-container{
+      position: fixed;
+      z-index: 1000;
+    }
+
+    .regresar-container {
+      bottom: 570px;
+      left: 1200px;
+    }
+
+    .regresar-btn {
+      width: 55px;
+      height: 55px;
+      background-color: white;
+      color: white;
+      border: none;
+      border-radius: 50px;
+      font-size: 16px;
+      cursor: pointer;
+      border: 2px solid #a5c8e1;
+    }
+     .regresar-btn:hover {
+      background-color: #a5c8e1;
+      transform: scale(1.2);
+    }
+
+    /* texto de mision y vision */
+
+    .contenido {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 30px;
+        }
+
+        .contenido img {
+            margin-right: 20px;
+        }
+
+        .lista {
+            text-align: left;
+        }
+
+        .descripcion {
+            margin-top: 30px;
+            width: 60%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+  </style>
+</head>
+
+<body>
+
+  <div class="barra-superior">
+  <div class="barra-superior">
+    <div class="logo"  >
+      <a href="index.html" class="boton-imagen">
+  	<img src="Imagenes/icono1.png" alt="Icono">
+	</a>
+    </div>
+
+   <!-- Botón de regresar -->
+  <div class="regresar-container">
+    <button class="regresar-btn" onclick="regresar()">
+      <span style="font-size: 30px;">🔙</span>
+    </button>
+  </div>
+
+<script>
+    function confirmarNavegacion() {
+      return confirm("¿Seguro que quieres ir a esta página?");
+    }
+
+    function regresar() {
+    window.location.href = "index.html"; // Redirige a la página Inicio.html
+  	}
+	
+	function confirmarNavegacion() {
+     	 return confirm("¿Seguro que quieres ir a esta página?");
+    }
+
+    function regresar() {
+    window.location.href = "index.html"; // Redirige a la página Inicio.html
+  	}
+  </script>
+ 
+  
+
+    <div class="titulo">
+      <h1>Nosotros</h1>
+    </div>
+  </div>
+  <div class="contenido">
+        <img src="Imagenes/icono1.png" width="300" height="200" alt="Icono de tecnología">
+        <div class="lista">
+            <h3>• Computadoras</h3>
+            <h3>• Celulares</h3>
+            <h3>• Tablets</h3>
+            <h3>• Reloj inteligente</h3>
+            <h3>• Accesorios</h3>
+        </div>
+    </div>
+
+    <div class="descripcion">
+        <h4>
+            De hecho, su nombre “Machiliztli”, proviene de la palabra “conocimiento” en náhuatl; 
+            nuestra intención con el nombre es relacionar la tecnología como una forma de conocimiento al 
+            entorno mexicano, (Ya que como pudimos conocer en pandemia, México fue un país sumamente 
+            afectado por la falta de acceso a la tecnología).
+        </h4>
+
+        <h1 style="text-align: center;">MISION </h1>
+   	<h4>	 
+		"Impulsar la transformación digital de nuestros clientes ofreciendo soluciones tecnológicas 
+		innovadoras, accesibles y de alta calidad, como computadoras, teléfonos celulares y dispositivos 
+		complementarios. Nos comprometemos a ser el aliado estratégico de personas, empresas y 
+		organizaciones, brindando productos que simplifiquen su vida diaria, potencien su productividad 
+		y conecten con el futuro. A través de un servicio cercano, asesoría especializada y un catálogo 
+		actualizado con las últimas tendencias, buscamos inspirar el uso responsable y creativo de la 
+		tecnología para construir un mundo más eficiente y conectado."
+	</h4>
+
+	<h1 style="text-align: center;">VISION </h1>
+   	<h4 style="text-align: justify;">	 
+		"Ser líderes en la democratización de la tecnología en Latinoamérica, reconocidos por 
+		fusionar innovación con responsabilidad social. Aspiramos a ser el puente entre las últimas 
+		tendencias globales y las necesidades locales, creando un ecosistema donde la tecnología impulse 
+		el progreso humano, la inclusión digital y el cuidado del medio ambiente." 
+	</h4>
+
+
+	<h1 style="text-align:  center;">VALORES </h1>
+
+	<h3 style="text-align: justify;">INNOVACIÓN</h3>
+
+	<h4 style="text-align: justify;">
+    		Integrar avances tecnológicos que resuelvan problemas reales y mejoren 
+    		la calidad de vida.
+	</h4>
+
+	<h3 style="text-align: justify;">EXCELENCIA</h3>
+
+	<h4 style="text-align: justify;">
+    		Ofrecer productos certificados, asesoría técnica especializada y garantías 
+    		transparentes.
+	</h4>
+
+	<h3 style="text-align: justify;">SOSTENIBILIDAD</h3>
+
+	<h4 style="text-align: justify;">
+    		Promover prácticas ecoamigables, desde productos reciclables hasta 
+    		programas de recompra o regalos de productos o dispositivos usados.
+	</h4>
+
+	<h3 style="text-align: justify;">FILOSOFÍA</h3>
+
+	<h4 style="text-align: justify;">
+    		“Tecnología con raíces, futuro con sentido" 
+    		En MACHILIZTLI, creemos que la tecnología no debe ser un lujo, sino una herramienta 
+    		para construir equidad y preservar nuestra esencia cultural. Nos guía el principio náhuatl "In tlilli 
+    		in tlapalli" ("la tinta negra y los colores"), simbolizando la unión entre conocimiento tradicional y 
+    		modernidad. Buscamos que cada dispositivo vendido no solo cumpla una función práctica, sino 
+    		que también contribuya a un ciclo virtuoso de desarrollo social y ambiental.
+	</h4>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Michiliztli</title>
+  <link rel="shortcut icon" href="Imagenes/icono.png" type="image/png">
+  <style>
+    body {
+      font-family: "Sans-serif", Helvetica, sans-serif;
+      margin: 0;
+    }
+
+    .barra-superior {
+      display: flex;
+      align-items: center;
+      background-color: #a5c8e1;
+      padding: 12px 30px;
+    }
+
+    /* Logo a la izquierda */
+     .logo {
+ 	z-index: 1001;
+  	position: relative;
+     }
+
+    .logo img {
+      width: 72px;
+      border-radius: 50px;
+    }
+
+    /* Título centrado en el espacio restante */
+    .titulo {
+  	flex: 1;
+  	text-align: center;
+  	position: relative;
+  	left: -70px;
+	}
+
+    .titulo h1 {
+      margin: 0;
+      font-size: 60px;
+      color: #333;
+      background-color: white;
+      border-radius: 25px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      display: inline-block;
+      padding: 5px 20px;
+    }
+	/* ===== INICIO botones ===== */
+    .carrito-container, .soporte-container {
+      position: fixed;
+      z-index: 1000;
+    }
+
+    .carrito-container {
+      bottom: 570px;
+      left: 1200px;
+    }
+
+    .carrito-btn {
+      	width: 55px;
+      	height: 55px;
+      	background-color: white;
+      	color: white;
+      	border: none;
+      	border-radius: 50px;
+      	font-size: 16px;
+      	cursor: pointer;
+	border: 2px solid #a5c8e1;
+    }
+     .carrito-btn:hover {
+      background-color: #a5c8e1;
+      transform: scale(1.2);
+    }
+/*ojos*/
+	.modo-oscuro {
+    		background: #121212 !important;
+    		color: #f0f0f0 !important;
+	}
+
+	.modo-oscuro a {
+    		color: #90caf9 !important;
+	}
+
+	.modo-oscuro .carrito-btn,
+	.modo-oscuro .soporte-btn,
+	.modo-oscuro .sub-boton,
+	.modo-oscuro .busqueda-btn,
+	.modo-oscuro .accesibilidad-btn {
+    		background-color: #1e1e1e !important;
+    		color: #ffffff !important;
+    		border: 1px solid #444 !important;
+	}
+
+	.modo-oscuro .submenu,
+	.modo-oscuro .accesibilidad-menu,
+	.modo-oscuro .nav li a,
+	.modo-oscuro .nav li ul {
+    		background-color: #1e1e1e !important;
+    		color: #ffffff !important;
+	}
+
+	.modo-oscuro .footer {
+    		background-color: #222 !important;
+    		color: #ccc !important;
+	}
+        
+	.accesibilidad-container {
+    		position: fixed;
+    		top: 20px;/*derecha*/
+    		right: 280px;/*izquierda*/
+    		z-index: 1000;
+	}
+
+	.accesibilidad-btn {
+    		width: 55px; /*ancho*/
+    		height: 55px; /*alto*/
+    		background-color: white;
+    		color: white;
+    		border: none;
+    		border-radius: 50px; /* sea del 50% para que los bordes se redondeen completamente y formen circulo */
+    		font-size: 16px;
+    		cursor: pointer;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border: 2px solid #a5c8e1;
+		
+	}
+
+	.accesibilidad-menu {
+    		display: none;
+    		position: absolute; /* Cambio aquí para que el menú se posicione en relación al contenedor */
+    		top: 60px; /* Ajusta según el espacio que necesites */
+    		left: 0;
+    		flex-direction: column;
+    		background-color: white;
+    		border: 1px solid #ccc;
+    		border-radius: 8px;
+    		padding: 5px;
+    		z-index: 999; /* Asegura que el submenú esté encima del botón */
+	}
+
+	.accesibilidad-btn:hover {
+		transform: scale(1.2); /* Hace que el tamaño se agrande */
+	}
+
+	.sub-boton {
+    		background-color: #ede8d4;
+    		color: #000000;
+    		border: none;
+    		margin: 5px 0;
+    		padding: 8px;
+    		border-radius: 6px;
+    		cursor: pointer;
+	}
+
+	.sub-boton:hover {
+    		background-color: #a5c8e1;
+	}
+
+	/* Modo accesibilidad visual */
+	.modo-visual {
+    		background-color: black !important;
+    		color: #FFD700 !important;
+	}
+
+	.modo-visual a {
+    		color: #00FFFF !important;
+	}
+
+	/* Modo daltonismo (protanopía/deuteranopía friendly) */
+	.modo-daltonismo {
+    		background-color: #F5F5F5 !important;
+    		color: #00008B !important;
+	}
+
+	.modo-daltonismo a {
+    		color: #005A9C !important;
+	}
+
+	.modo-visual img {
+    		filter: brightness(1.2) contrast(1.5) grayscale(0);
+	}
+
+	.modo-daltonismo img {
+    		filter: contrast(1.2) saturate(1.3) hue-rotate(20deg);
+	}	
+
+	/* AGREGADO: Estilo de lupa con cursor */
+	.lupa {
+  		position: absolute;
+  		border: 1px solid #000;
+  		border-radius: 50%;
+  		width: 100px;
+  		height: 100px;
+  		overflow: hidden;
+  		pointer-events: none;
+  		z-index: 9999;
+  		display: none;
+	}
+
+	.lupa img {
+  		position: absolute;
+  		transform: scale(2);
+  		transform-origin: center;
+	}
+
+
+
+
+    .soporte-container {
+      bottom: 70px;
+      left: 1200px;
+    }
+    .soporte-btn {
+      width: 55px;
+      height: 55px;
+      background-color: white;
+      color: white;
+      border: none;
+      border-radius: 50px;
+      font-size: 16px;
+      cursor: pointer;
+      border: 2px solid #a5c8e1; /* Contorno azul claro BORDO*/
+    }
+    .soporte-btn:hover {
+    background-color: #a5c8e1;
+    transform: scale(1.2); /* Hace que el tamaño se agrande */
+}
+
+    /* ===== fin de botones S Y C ===== */
+
+	/*  regresar */
+	.regresar-container{
+      position: fixed;
+      z-index: 1000;
+    }
+
+    .regresar-container {
+      bottom: 570px;
+      left: 1100px;
+    }
+
+    .regresar-btn {
+      	width: 55px;
+      	height: 55px;
+      	background-color: white;
+      	color: white;
+      	border: none;
+      	border-radius: 50px;
+      	font-size: 16px;
+      	cursor: pointer;
+	border: 2px solid #a5c8e1;
+    }
+     .regresar-btn:hover {
+      background-color: #a5c8e1;
+      transform: scale(1.2);
+    }
+	/* secion de imagenes principales */
+	.galeria {
+    		display: flex;
+    		justify-content: flex-start;
+    		gap: 100px;
+    		margin-top: 0px;
+		margin-left: 30px; /*mueve la imagen hacia la izquierda hasta 100px ya despues a la derecha*/
+    		margin-bottom: 80px; /* espacio antes del footer */
+  	}
+
+  	.item {
+    			text-align: center;
+    			transition: transform 0.3s ease;
+    			margin-top: 0px; /* mueve la imagen hacia abajo */
+  	}
+
+  	.item img {
+    			width: 130px;
+    			transition: transform 0.3s ease;
+			margin-top: 10px; /* mueve la imagen hacia abajo */
+  	}
+
+  	.item:hover img {
+    				transform: scale(1.1);
+  	}
+
+  	.item p {
+    			margin-top: 10px;
+    			font-size: 18px;
+    			font-weight: bold;
+  	}
+	/*secion para agregar boton para agregar a carrito y ver especificaciones de producto*/
+	.boton {
+    		padding: 8px 16px;
+    		margin: 5px 5px 0 0;
+    		border: none;
+    		border-radius: 6px;
+   		font-size: 14px;
+    		cursor: pointer;
+  	}
+
+  	.agregar-carrito {
+    		background-color: #28a745;
+    		color: white;
+  	}
+
+  	.ver-producto {
+    		background-color: #007bff;
+    		color: white;
+  	}
+
+  	.boton:hover {
+    		opacity: 0.8;
+  	}
+	
+
+  </style>
+</head>
+
+<body>
+
+  <div class="barra-superior">
+    <div class="logo"  >
+      <a href="index.html" class="boton-imagen">
+  		<img src="Imagenes/icono1.png" alt="Icono">
+	</a>
+    </div>
+	
+
+    <div class="titulo">
+      <h1>Laptop's</h1>
+    </div>
+  </div>
+<div class="galeria">
+	<div class="item" onclick="abrirlaptop1()">
+		<img src="Imagenes/laptop1.png" alt="laptop1">
+    			<p>IdeaCentre 23.8"</p>
+			<p>AIO 9na Gen (Touch)</p>
+			<p>- Luna Grey</p>
+
+		<button class="boton agregar-carrito" onclick="agregarAlCarrito(event)">Agregar al carrito</button>
+  		<button class="boton ver-producto" onclick="verProducto1(event)">Ver producto</button>
+  </div>
+	<div class="item" onclick="abrirlaptop2()">
+		<img src="Imagenes/laptop2.png" alt="laptop2">
+			<p></p>
+    			<p>ThinkPad L14</p>
+			<p>5ta Gen</p>
+			<p>(Intel)¡Personalizable!</p>
+
+		<button class="boton agregar-carrito" onclick="agregarAlCarrito(event)">Agregar al carrito</button>
+  		<button class="boton ver-producto" onclick="verProducto2(event)">Ver producto</button>
+  </div>
+<div class="item" onclick="abrirlaptop3()">
+		<img src="Imagenes/laptop3.png" alt="laptop3">
+			<p></p>
+    			<p>Yoga 9i 14"</p>
+			<p></p>
+			<p> - Mica</p>
+
+		<button class="boton agregar-carrito" onclick="agregarAlCarrito(event)">Agregar al carrito</button>
+  		<button class="boton ver-producto" onclick="verProducto3(event)">Ver producto</button>
+</div>
+<div class="item" onclick="abrirlaptop4()">
+		<img src="Imagenes/laptop4.png" alt="laptop4">
+			<p></p>
+    			<p>Yoga Slim 7i 14" </p>
+			<p>9na Gen</p>
+			<p> - Luna Grey</p>
+
+		<button class="boton agregar-carrito" onclick="agregarAlCarrito(event)">Agregar al carrito</button>
+  		<button class="boton ver-producto" onclick="verProducto4(event)">Ver producto</button>
+</div>
+
+</div>
+
+<div class="galeria">
+<div class="item" onclick="abrirlaptop5()">
+		<img src="Imagenes/laptop5.png" alt="laptop5">
+    			<p>hinkCentre M90a AIO </p>
+			<p>5ta Gen</p>
+			<p>¡Personalizable!</p>
+
+		<button class="boton agregar-carrito" onclick="agregarAlCarrito(event)">Agregar al carrito</button>
+  		<button class="boton ver-producto" onclick="verProducto5(event)">Ver producto</button>
+</div>
+	<div class="item" onclick="abrirlaptop6()">
+		<img src="Imagenes/laptop6.png" alt="laptop6">
+    			<p>MacBook Air</p>
+			<p> (M2, 2023)</p>
+			<p></p>
+
+		<button class="boton agregar-carrito" onclick="agregarAlCarrito(event)">Agregar al carrito</button>
+  		<button class="boton ver-producto" onclick="verProducto6(event)">Ver producto</button>
+  </div>
+	<div class="item" onclick="abrirlaptop7()">
+		<img src="Imagenes/laptop7.png" alt="laptop7">
+			<p></p>
+    			<p>MacBook Pro 13"</p>
+			<p> (M2, 2022)</p>
+			<p></p>
+
+		<button class="boton agregar-carrito" onclick="agregarAlCarrito(event)">Agregar al carrito</button>
+  		<button class="boton ver-producto" onclick="verProducto7(event)">Ver producto</button>
+  </div>
+<div class="item" onclick="abrirlaptop8()">
+		<img src="Imagenes/laptop8.png" alt="laptop8">
+			<p></p>
+    			<p>MacBook Pro 14"</p>
+			<p></p>
+			<p> (M2 Pro, 2023)</p>
+
+		<button class="boton agregar-carrito" onclick="agregarAlCarrito(event)">Agregar al carrito</button>
+  		<button class="boton ver-producto" onclick="verProducto8(event)">Ver producto</button>
+</div>
+</div>
+
+<div class="galeria">
+<div class="item" onclick="abrirlaptop9()">
+		<img src="Imagenes/laptop9.png" alt="laptop9">
+			<p></p>
+    			<p>MacBook Pro 16" </p>
+			<p></p>
+			<p> (M2 Pro, 2023)</p>
+
+		<button class="boton agregar-carrito" onclick="agregarAlCarrito(event)">Agregar al carrito</button>
+  		<button class="boton ver-producto" onclick="verProducto9(event)">Ver producto</button>
+</div>
+<div class="item" onclick="abrirlaptop10()">
+		<img src="Imagenes/laptop10.png" alt="laptop10">
+    			<p>Laptop HP 240 G10 de 14" </p>
+			<p> Intel® Core™ i3</p>
+			<p>Windows 11 Home Single Language</p>
+
+		<button class="boton agregar-carrito" onclick="agregarAlCarrito(event)">Agregar al carrito</button>
+  		<button class="boton ver-producto" onclick="verProducto10(event)">Ver producto</button>
+</div>
+	<div class="item" onclick="abrirlaptop2()">
+		<img src="Imagenes/laptop11.png" alt="laptoP11">
+			<p></p>
+    			<p>Lenovo </p>
+			<p>9ta Gen</p>
+			<p> ThinkPad P53 15.6"</p>
+
+		<button class="boton agregar-carrito" onclick="agregarAlCarrito(event)">Agregar al carrito</button>
+  		<button class="boton ver-producto" onclick="verProducto11(event)">Ver producto</button>
+  </div>
+
+</div>
+
+  <!-- ===== INICIO botones ===== -->
+  
+  <div class="accesibilidad-container">
+	<button class="accesibilidad-btn" onclick="toggleMenu()"><span style="font-size: 25px;">👀</span> </button>
+	<div id="menuAccesibilidad" class="accesibilidad-menu">
+		<button onclick="activarModoOscuro()" class="sub-boton">Modo oscuro</button>
+		<button onclick="activarVisual()" class="sub-boton">Para discapacidades visuales</button>
+		<button onclick="activarDaltonismo()" class="sub-boton">Para personas con daltonismo</button>
+		<button onclick="activarLupa()" class="sub-boton">Activar lupa</button>
+		<button onclick="desactivarLupa()" class="sub-boton">Desactivar lupa</button>
+  	</div>
+</div>
+
+	<div id="lupa" class="lupa"></div>
+
+  <div class="carrito-container">
+    <button class="carrito-btn" onclick="abrirCarrito()"><span style="font-size: 30px;">🛒</span></button>
+  </div>
+
+  <div class="soporte-container">
+    <button class="soporte-btn" onclick="abrirSoporte()"><span style="font-size: 30px;">🎧</span></button>
+  </div>
+	
+	<!-- Botón de regresar -->
+  <div class="regresar-container">
+    <button class="regresar-btn" onclick="regresar()">
+      <span style="font-size: 30px;">🔙</span>
+    </button>
+  </div>
+
+
+
+
+  <script>
+  	function toggleMenu() {
+    		const menu = document.getElementById("menuAccesibilidad");
+    		menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+  	}
+	function activarModoOscuro() {
+    		document.body.classList.remove("modo-visual", "modo-daltonismo"); // Quita otros modos si están activos
+    		document.body.classList.toggle("modo-oscuro");
+	}
+
+  	function activarVisual() {
+    		document.body.classList.remove("modo-daltonismo");
+    		document.body.classList.toggle("modo-visual");
+  	}
+
+	function activarDaltonismo() {
+		document.body.classList.remove("modo-visual");
+    		document.body.classList.toggle("modo-daltonismo");
+  	}
+  	let lupaActiva = false;
+  	const lupa = document.getElementById("lupa");
+  	const zoomFactor = 2; // Nivel de zoom
+
+  	function activarLupa() {
+    		lupaActiva = !lupaActiva;
+    		lupa.style.display = lupaActiva ? "block" : "none";
+
+    		if (lupaActiva) {
+      			document.addEventListener("mousemove", moverLupa);
+    		} else {
+      		document.removeEventListener("mousemove", moverLupa);
+    		}
+  	}
+
+  	function moverLupa(e) {
+    	const size = 150; 
+
+    
+    	lupa.style.left = e.pageX - size / 2 + "px";
+    	lupa.style.top = e.pageY - size / 2 + "px";
+
+    
+    	const scale = zoomFactor; 
+    	document.body.style.transform = `scale(${scale})`;  
+   	document.body.style.transformOrigin = `${e.pageX}px ${e.pageY}px`;
+	
+   
+    	const maxX = window.innerWidth - size;
+    	const maxY = window.innerHeight - size;
+    	const x = Math.min(Math.max(e.pageX - size / 2, 0), maxX);
+    	const y = Math.min(Math.max(e.pageY - size / 2, 0), maxY);
+    	lupa.style.left = `${x}px`;
+    	lupa.style.top = `${y}px`;
+  	}
+		function desactivarLupa() {
+  		lupaActiva = false;
+  		lupa.style.display = "none";
+  		document.removeEventListener("mousemove", moverLupa);
+  		document.body.style.transform = "scale(1)";
+  		document.body.style.transformOrigin = "center center";
+	}
+    function abrirCarrito() {
+      window.location.href = "Carrito.html";
+    }
+
+   
+
+    function abrirSoporte() {
+    window.location.href = "Soporte tecnico.html"; // Redirige a la página Inicio.html
+  }
+
+
+function regresar() {
+    window.location.href = "index.html"; // Redirige a la página Inicio.html
+  	}
+	
+	function confirmarNavegacion() {
+     	 return confirm("¿Seguro que quieres ir a esta página?");
+    }
+
+    function regresar() {
+    window.location.href = "index.html"; // Redirige a la página Inicio.html
+  }
+	function agregarAlCarrito(event) {
+    event.stopPropagation(); // evita que se ejecute abrirmouse()
+    alert("Producto agregado al carrito");
+  }
+
+	function verProducto1(event)  {
+  		window.location.href = "IdeaCentre.html";
+  	}
+  	function verProducto2(event)  {
+  		window.location.href = "ThinkPad.html";
+  	}
+	function verProducto3(event)  {
+  		window.location.href = "yoga.html";
+  	}
+  	function verProducto4(event)  {
+  		window.location.href = "yogaslim.html";
+  	}
+	function verProducto5(event)  {
+  		window.location.href = "ThinkCentre.html";
+  	}
+  	function verProducto6(event)  {
+  		window.location.href = "Macbookair.html";
+  	}
+	function verProducto7(event)  {
+  		window.location.href = "Macbookpro.html";
+  	}
+  	function verProducto8(event)  {
+  		window.location.href = "MacbookPro14.html";
+  	}
+	function verProducto9(event)  {
+  		window.location.href = "MacBookPro16.html";
+  	}
+  	function verProducto10(event)  {
+  		window.location.href = "LaptopHP.html";
+  	}
+  	function verProducto11(event)  {
+  		window.location.href = "ThinkPad1.html";
+  	}
+
+
+  function abrirmouse() {
+    console.log("abrirmouse ejecutado");
+    // Aquí puedes hacer lo que tenías previsto al hacer clic en el item
+  }
+
+
+  </script>
+  <!-- ===== FIN ===== -->
+
+</body>
+</html>
