@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Michiliztli</title>
+  <link rel="shortcut icon" href="Imagenes/icono.png" type="image/png">
+  <style>
+    body {
+      font-family: "Sans-serif", Helvetica, sans-serif;
+      margin: 0;
+    }
+
+    .barra-superior {
+      display: flex;
+      align-items: center;
+      background-color: #a5c8e1;
+      padding: 12px 30px;
+    }
+
+    /* Logo a la izquierda */
+     .logo {
+ 	z-index: 1001;
+  	position: relative;
+     }
+
+    .logo img {
+      width: 72px;
+      border-radius: 50px;
+    }
+
+    /* Título centrado en el espacio restante */
+    .titulo {
+  	flex: 1;
+  	text-align: center;
+  	position: relative;
+  	left: -70px;
+	}
+
+    .titulo h1 {
+      margin: 0;
+      font-size: 60px;
+      color: #333;
+      background-color: white;
+      border-radius: 25px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      display: inline-block;
+      padding: 5px 20px;
+    }
+
+     .regresar-container{
+      position: fixed;
+      z-index: 1000;
+    }
+
+    .regresar-container {
+      bottom: 570px;
+      left: 1200px;
+    }
+
+    .regresar-btn {
+      width: 55px;
+      height: 55px;
+      background-color: white;
+      color: white;
+      border: none;
+      border-radius: 50px;
+      font-size: 16px;
+      cursor: pointer;
+      border: 2px solid #a5c8e1;
+    }
+     .regresar-btn:hover {
+      background-color: #a5c8e1;
+      transform: scale(1.2);
+    }
+
+    /* texto de mision y vision */
+
+    .contenido {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 30px;
+        }
+
+        .contenido img {
+            margin-right: 20px;
+        }
+
+        .lista {
+            text-align: left;
+        }
+
+        .descripcion {
+            margin-top: 30px;
+            width: 60%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+  </style>
+</head>
+
+<body>
+  <div class="barra-superior">
+    <div class="logo"  >
+      <a href="inicio.html" class="boton-imagen">
+  	<img src="icono1.png" alt="Icono">
+	</a>
+    </div>
+
+   <!-- Botón de regresar -->
+  <div class="regresar-container">
+    <button class="regresar-btn" onclick="regresar()">
+      <span style="font-size: 30px;">🔙</span>
+    </button>
+  </div>
+
+<script>
+    function confirmarNavegacion() {
+      return confirm("¿Seguro que quieres ir a esta página?");
+    }
+
+    function regresar() {
+    window.location.href = "index.html"; // Redirige a la página Inicio.html
+  	}
+	
+	function confirmarNavegacion() {
+     	 return confirm("¿Seguro que quieres ir a esta página?");
+    }
+
+    function regresar() {
+    window.location.href = "index.html"; // Redirige a la página Inicio.html
+  	}
+  </script>
+ 
+  
+
+    <div class="titulo">
+      <h1>Manual De Usuario</h1>
+    </div>
+ </div>
+
+<iframe src="Manual de usuario.pdf" width="100%" height="600px">
+  Este navegador no soporta PDFs. <a href="ruta/al/archivo.pdf">Descargar PDF</a>.
+</iframe>
+
+
+</body>
+</html>
